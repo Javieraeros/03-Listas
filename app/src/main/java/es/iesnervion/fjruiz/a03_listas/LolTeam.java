@@ -1,5 +1,8 @@
 package es.iesnervion.fjruiz.a03_listas;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /*************
  * Propiedades
  * ***********
@@ -21,7 +24,7 @@ package es.iesnervion.fjruiz.a03_listas;
  *
  */
 
-public class LolTeam {
+public class LolTeam implements Parcelable {
 
     private Integer ID;
     private String name;
@@ -94,5 +97,15 @@ public class LolTeam {
                 ", info='" + info + '\'' +
                 ", points=" + points +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

@@ -1,6 +1,7 @@
 package es.iesnervion.fjruiz.a03_listas;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
@@ -17,10 +18,16 @@ public class Principal extends ListActivity {
         LolTeam clg=new LolTeam(4,"Counter Logic Gaming","NPI de que equipo es",R.drawable.clg,23);
 
 
-        LolTeam[] teams=new LolTeam[]{origen,tsm,skt,skt,g2,clg};
+        LolTeam[] teams=new LolTeam[]{origen,tsm,skt,g2,clg,tsm,skt,g2,clg,tsm,skt,g2,clg};
 
 
         MyArrayAdapter a=new MyArrayAdapter(this,R.layout.fila,R.id.texto,teams);
         setListAdapter(a);
+
+        Bundle equipoSeleccionado=
+
+        Intent info=new Intent(this,Secundaria.class);
+        info.putExtra("equipo",equipoSeleccionado);
+        startActivity(info);
     }
 }
