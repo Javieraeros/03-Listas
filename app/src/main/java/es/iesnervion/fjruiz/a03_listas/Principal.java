@@ -24,7 +24,7 @@ public class Principal extends ListActivity {
         MyArrayAdapter a=new MyArrayAdapter(this,R.layout.fila,R.id.texto,teams);
         setListAdapter(a);
 
-        Bundle equipoSeleccionado=
+
 
         Intent info=new Intent(this,Secundaria.class);
         info.putExtra("equipo",equipoSeleccionado);
