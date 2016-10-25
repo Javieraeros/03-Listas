@@ -3,10 +3,13 @@ package es.iesnervion.fjruiz.a03_listas;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class Principal extends ListActivity {
 
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +27,13 @@ public class Principal extends ListActivity {
         MyArrayAdapter a=new MyArrayAdapter(this,R.layout.fila,R.id.texto,teams);
         setListAdapter(a);
 
+        lv=getListView();
+    }
 
-
-        Intent info=new Intent(this,Secundaria.class);
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Intent info=new Intent(this,info.class);
+        LolTeam equipoSeleccionado=(LolTeam) this.getListAdapter().getItem(position);
         info.putExtra("equipo",equipoSeleccionado);
         startActivity(info);
     }
