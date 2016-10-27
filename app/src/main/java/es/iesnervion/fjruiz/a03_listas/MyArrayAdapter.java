@@ -18,13 +18,34 @@ public class MyArrayAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView,ViewGroup parent){
-        View v=super.getView(position,convertView,parent);
+        //Sin view holder
+        /*View v=super.getView(position,convertView,parent);
         TextView txt=(TextView) v.findViewById(R.id.texto);
         ImageView icon=(ImageView) v.findViewById(R.id.icon);
         LolTeam p=(LolTeam) getItem(position);
 
         txt.setText(p.getName());
-        icon.setImageResource(p.getIcon());
+        icon.setImageResource(p.getIcon());*/
+
+        View v=convertView;
+        ViewHolder holder;
+
+        LolTeam equipo=(LolTeam) getItem(position);
+
+        if(v==null) {
+
+            v=super.getView(position,convertView,parent);
+            TextView txt=(TextView) v.findViewById(R.id.texto);
+            ImageView icon=(ImageView) v.findViewById(R.id.icon);
+
+            holder=new ViewHolder(v,R.id.texto,R.id.icon);
+            v.setTag(holder);
+        }else {
+            holder=(ViewHolder) v.getTag();
+        }
+        holder.getLab().setText(equipo.getName());
+        holder.getImg().setImageResource(equipo.getIcon());
         return v;
     }
+
 }

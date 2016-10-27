@@ -21,8 +21,14 @@ public class Principal extends ListActivity {
         LolTeam clg=new LolTeam(4,"Counter Logic Gaming","NPI de que equipo es",R.drawable.clg,23);
 
 
-        LolTeam[] teams=new LolTeam[]{origen,tsm,skt,g2,clg,tsm,skt,g2,clg,tsm,skt,g2,clg};
-
+        LolTeam[] teams=new LolTeam[10005];
+        for(int i=0;i<10000;i=i+5){
+            teams[i]=origen;
+            teams[i+1]=tsm;
+            teams[i+2]=skt;
+            teams[i+3]=g2;
+            teams[i+4]=clg;
+        }
 
         MyArrayAdapter a=new MyArrayAdapter(this,R.layout.fila,R.id.texto,teams);
         setListAdapter(a);

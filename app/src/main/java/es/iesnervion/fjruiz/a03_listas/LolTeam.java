@@ -106,6 +106,30 @@ public class LolTeam implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeValue(this.ID);
+        dest.writeString(this.name);
+        dest.writeInt(this.icon);
+        dest.writeString(this.info);
+        dest.writeValue(this.points);
     }
+
+    protected LolTeam(Parcel in) {
+        this.ID = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.name = in.readString();
+        this.icon = in.readInt();
+        this.info = in.readString();
+        this.points = (Integer) in.readValue(Integer.class.getClassLoader());
+    }
+
+    public static final Creator<LolTeam> CREATOR = new Creator<LolTeam>() {
+        @Override
+        public LolTeam createFromParcel(Parcel source) {
+            return new LolTeam(source);
+        }
+
+        @Override
+        public LolTeam[] newArray(int size) {
+            return new LolTeam[size];
+        }
+    };
 }

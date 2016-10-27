@@ -21,6 +21,7 @@ public class info extends AppCompatActivity {
         TextView numerito=(TextView) findViewById(R.id.Numerito);
         numerito.setText(seleccionado.getID().toString());
 
-        TextView
+        TextView informacion=(TextView) findViewById(R.id.info);
+        informacion.setText(seleccionado.getInfo().toString());
     }
 }
